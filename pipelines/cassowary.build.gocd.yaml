@@ -28,13 +28,13 @@ pipelines:
                     arguments:
                       - "-c"
                       - "docker build . -t rahulrakshit/cassowary:latest"
-                      - "docker tag rahulrakshit/cassowary:latest -t rahulrakshit/pingpong:${GO_PIPELINE_LABEL}"
+                      - "docker tag rahulrakshit/cassowary:latest -t rahulrakshit/cassowary:${GO_PIPELINE_LABEL}"
                     run_if: passed
                 - exec:
                     command: /bin/bash
                     arguments:
                       - "-c"
-                      - "docker tag rahulrakshit/cassowary:latest rahulrakshit/pingpong:${GO_PIPELINE_LABEL}"
+                      - "docker tag rahulrakshit/cassowary:latest rahulrakshit/cassowary:${GO_PIPELINE_LABEL}"
                     run_if: passed
       - docker_push:
           fetch_materials: true
